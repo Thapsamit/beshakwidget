@@ -1,0 +1,140 @@
+.widget-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border: 2px solid #33ab5f;
+  border-radius: 5px;
+  margin: 1em;
+  cursor: pointer;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 10px 20px;
+  transition: padding 0.3s linear, width 0.3s linear;
+  background-color: white;
+}
+
+.widget-container.open {
+  text-align: left;
+  width: 300px;
+  padding: 30px 20px;
+}
+
+.circular {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+.circular svg {
+  transform: rotate(90deg);
+}
+.circular svg circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 6;
+  stroke: black;
+  transform: translate(5px, 5px);
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  stroke-linecap: round;
+}
+
+.circular svg circle:nth-child(1) {
+  stroke-dashoffset: 0;
+  stroke: #d7d7d7;
+}
+
+.circular svg circle:nth-child(2) {
+  stroke-dashoffset: calc(220 - (220 * 25) / 100);
+  stroke: #33ab5f;
+}
+
+.circular .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 600;
+}
+.circular .number span {
+  font-size: 18px;
+}
+.next-text {
+  font-weight: 700;
+}
+
+.widget-start-text {
+  margin-top: 6px;
+  display: none;
+  transition: display 2s linear;
+}
+.widget-start-text.open {
+  display: block;
+}
+.progress-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+.progress-sub-title {
+  font-size: 15px;
+  font-size: 600;
+  margin-top: 6px;
+}
+
+.step-text {
+  margin-left: 10px;
+}
+
+.step-complete {
+  color: #33ab5f;
+  font-weight: 700;
+}
+.step-current {
+  font-weight: 700;
+}
+
+.progress-title-container {
+  margin: 20px 0;
+}
+
+.close-btn-open {
+  display: block;
+  animation: closeAnimation;
+  animation-duration: 1.3s;
+}
+@keyframes closeAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.close-btn-close {
+  display: none;
+}
+
+.progress-container {
+  display: none;
+  opacity: 0;
+  /* transition: opacity 2s linear, display 4s linear, background-color 5s linear; */
+}
+.progress-container.open {
+  display: block;
+  opacity: 1;
+  animation-name: animate;
+  animation-duration: 1.3s;
+}
+@keyframes animate {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
